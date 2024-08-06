@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PropertyService } from 'src/app/services/property.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
@@ -11,9 +11,9 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 })
 export class AddPropertyComponent implements OnInit {
 
-  createPropertyForm: FormGroup;
+  createPropertyForm: UntypedFormGroup;
   bsConfiguration: Partial<BsDatepickerConfig>;
-  constructor(private router: Router, private fb: FormBuilder, private propertyService:PropertyService) {
+  constructor(private router: Router, private fb: UntypedFormBuilder, private propertyService:PropertyService) {
     this.createPropertyForm = this.fb.group({
       propertyName: ['', Validators.required],
       companyName: ['', Validators.required],

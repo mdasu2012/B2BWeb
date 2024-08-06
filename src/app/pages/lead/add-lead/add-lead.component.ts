@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LeadService } from 'src/app/services/lead.service';
 
@@ -10,8 +10,8 @@ import { LeadService } from 'src/app/services/lead.service';
 })
 export class AddLeadComponent implements OnInit {
 
-  createLeadForm: FormGroup;
-  constructor(private router: Router, private fb: FormBuilder, private leadService:LeadService) {
+  createLeadForm: UntypedFormGroup;
+  constructor(private router: Router, private fb: UntypedFormBuilder, private leadService:LeadService) {
     this.createLeadForm = this.fb.group({
       firstName: ['', Validators.required],
       middleName: [''],
