@@ -1,0 +1,47 @@
+
+<div class=" content">
+    <button type="button" class="btn btn-primary add-button" (click)="gotoNewLPropertyCreation()" >New Property </button>
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h4 class=" card-title">Properties</h4>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>Property Name</th>
+                    <th>Company</th>
+                    <th>State</th>
+                    <th>Phone</th>
+                    <th>property Status</th>
+                    <th>Start Date</th>
+                    <th>Extension Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let property of properties">
+                    <td>{{property.propertyName}} </td>
+                    <td>{{property.companyName}}</td>
+                    <td>{{property.address?.state}}</td>
+
+                    <td>{{property.mobile}}</td>
+
+                     <td>{{property.status}}</td>
+                     <td>{{property.startDate}}</td>
+
+                     <td>{{property.extensionDate}}</td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  
