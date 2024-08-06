@@ -70,14 +70,14 @@
     "@angular/platform-browser": "17.3.12",
     "@angular/platform-browser-dynamic": "17.3.12",
     "@angular/router": "17.3.12",
-    "@ng-bootstrap/ng-bootstrap": "10.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "chart.js": "2.9.4",
     "core-js": "3.15.2",
-    "ngx-bootstrap": "^11.0.0",
+    "ngx-bootstrap": "^18.0.2",
     "ngx-toastr": "^16.2.0",
     "rxjs": "^6.5.5",
     "tslib": "2.3.0",
-    "zone.js": "0.14.10"
+    "zone.js": "^0.14.10"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "17.3.8",
