@@ -1,49 +1,51 @@
 
 <div class=" content">
-    <button type="button" class="btn btn-primary add-button" (click)="gotoNewLoadCreation()" >New Lead </button>
-    <div class=" row">
-      <div class=" col-md-12">
-        <div class=" card">
-          <div class=" card-header">
-            <h4 class=" card-title">Leads Data</h4>
-          </div>
-          <div class=" card-body">
-            <div class=" table-responsive">
-              <table class=" table tablesorter" id="">
-                <thead class=" text-primary">
-                  <tr>
-                    <th>Name</th>
-                    <th>Company</th>
-                    <th>State</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Lead Status</th>
-                    <th>Created Date</th>
-                    <th>Owner</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let lead of leadsList">
-                    <td>{{lead.firstName}} {{lead.lastName}}</td>
-                    <td>{{lead.industry}}</td>
-                    <td>{{lead.address?.state}}</td>
+  <button type="button" class="btn btn-primary add-button" (click)="gotoNewLoadCreation()" >New Lead </button>
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Leads Data</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Name</th>
+                  <th>Company</th>
+                  <th>State</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Lead Status</th>
+                  <th>Created Date</th>
+                  <th>Owner</th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let lead of leadsList1">
+                  <td>{{lead.firstName}} {{lead.lastName}}</td>
+                  <td>{{lead.industry}}</td>
+                  <td>{{lead.address?.state}}</td>
 
-                    <td>{{lead.mobile}}</td>
-                    <td>{{lead.email}}</td>
+                  <td>{{lead.mobile}}</td>
+                  <td>{{lead.email}}</td>
 
-                     <td>{{lead.leadStatus}}</td>
-                     <td>{{lead.createdDate}}</td>
+                   <td>{{lead.leadStatus}}</td>
+                   <td>{{lead.createdDate | date}}</td>
 
-                      <td>{{ lead.owner}}</td>
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                    <td>{{ lead.owner}}</td>
+                    <td> <button (click)="edit(lead)" class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Lead" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-     
     </div>
+   
   </div>
-  
+</div>  
