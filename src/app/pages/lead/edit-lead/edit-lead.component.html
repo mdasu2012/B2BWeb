@@ -3,7 +3,7 @@
         <div class=" col-md-12">
             <div class=" card">
                 <div class=" card-header">
-                    <h5 class=" title">Create New Lead </h5>
+                    <h5 class=" title">Update Lead </h5>
                 </div>
                 <form [formGroup]="editLeadForm" (ngSubmit)="updateLead()">
                     <div class=" card-body">
@@ -185,7 +185,7 @@
 
                     </div>
                     <div class=" card-footer">
-                        <button class=" btn btn-fill btn-success" type="submit" [disabled]="this.editLeadForm.invalid">Save</button>
+                        <button class=" btn btn-fill btn-success" type="submit" [disabled]="this.editLeadForm.invalid">Update</button>
                         <button class=" btn btn-fill btn-danger" type="text" (click)="gotoBack()">Cancel</button>
                     </div>
                 </form>
