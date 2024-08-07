@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
   loginForm: UntypedFormGroup;
   user: UserAccount;
+  showOtp:boolean=true;
   constructor(private router: Router, private fb: UntypedFormBuilder, private userService: UserService) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -32,11 +33,20 @@ export class LoginComponent implements OnInit {
     this.userService.doLogin(this.loginForm.value).subscribe((data: any) => {
       this.user = data;
       console.dir(this.user)
+      // this.showOtp=true;
       this.router.navigateByUrl("/admin/dashboard");
 
     }, (error: any) => {
 
     })
   }
+  onOtpChange(value:any){
+    console.log(value)
+    this.userService.checkOtp(value).subscribe(res=>{
+      this.router.navigateByUrl("/admin/dashboard");
+    },error => {
 
+    })
+    
+  }
 }

@@ -10,6 +10,9 @@ export class AppConstants {
     public static POST_DO_LOGIN() {
         return `${baseUrl}` + "user/login";
     }
+    public static DO_CHECK_OTP() {
+        return `${baseUrl}` + "user/login/otp";
+    }
 
     public static POST_CREAE_LEAD() {
         return `${baseUrl}` + "lead/add";
@@ -18,7 +21,9 @@ export class AppConstants {
     public static GET_ALL_LEADS() {
         return `${baseUrl}` + "lead/all";
     }
-
+    public static GET_LEADS_BY_ID(id:any) {
+        return `${baseUrl}` + "lead/" + id;
+    }
     public static POST_CREAE_PROPERTY() {
         return `${baseUrl}` + "property/add";
     }

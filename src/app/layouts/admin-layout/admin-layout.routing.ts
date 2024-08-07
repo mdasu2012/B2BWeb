@@ -19,7 +19,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "leads", component: LeadListComponent },
   { path: "add_lead", component: AddLeadComponent },
-  { path: "edit_lead", component: EditLeadComponent },
+  { path: "edit_lead/:id", component: EditLeadComponent },
 
   { path: "properties", component: PropertyListComponent },
   { path: "add_property", component: AddPropertyComponent },

@@ -43,7 +43,8 @@ export class LeadListComponent implements OnInit {
     })
   }
   edit(data){  
-    this.router.navigateByUrl("/admin/edit_lead");
+    console.log(data)
+    this.router.navigateByUrl("/admin/edit_lead/",data.id);
   }
   
 }

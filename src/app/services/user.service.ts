@@ -17,4 +17,7 @@ export class UserService {
   doLogin(userAccount: any){
     return this._http.post<any>(AppConstants.POST_DO_LOGIN(), userAccount);
   }
+  checkOtp(otp:any){
+    return this._http.post<any>(AppConstants.DO_CHECK_OTP(), otp);
+  }
 }

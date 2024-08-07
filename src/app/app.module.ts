@@ -21,6 +21,7 @@ import { PropertyListComponent } from './pages/property/property-list/property-l
 import { AddPropertyComponent } from './pages/property/add-property/add-property.component';
 import { EditPropertyComponent } from './pages/property/edit-property/edit-property.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { NgOtpInputModule } from "ng-otp-input";
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    NgOtpInputModule,
     ToastrModule.forRoot(),
     BsDatepickerModule.forRoot(),
   ],

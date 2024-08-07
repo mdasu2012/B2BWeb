@@ -1,6 +1,6 @@
 import { Component, Input, input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LeadService } from '../../../services/lead.service';
 @Component({
   selector: 'app-edit-lead',
@@ -9,15 +9,18 @@ import { LeadService } from '../../../services/lead.service';
 })
 export class EditLeadComponent implements OnInit { 
   editLeadForm: UntypedFormGroup;
-  leadsList:any = 
-    {firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
-      state:'AP'},mobile:'92834769',email:'sdf@getMaxListeners.com',
-      leadStatus:'COLD',createdDate:new Date(),owner:'Satish',
-      leadSource:"COMPANY_LEAD"
-    }
+  selectedId:any;
+  leadsList:any;
+  // leadsList:any = 
+  //   {firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
+  //     state:'AP'},mobile:'92834769',email:'sdf@getMaxListeners.com',
+  //     leadStatus:'COLD',createdDate:new Date(),owner:'Satish',
+  //     leadSource:"COMPANY_LEAD"
+  //   }
   
-  constructor(private router: Router, private fb: UntypedFormBuilder, private leadService:LeadService) {  
-
+  constructor(private router: Router,private activateRouter:ActivatedRoute, private fb: UntypedFormBuilder, private leadService:LeadService) { 
+   this.selectedId = this.activateRouter.snapshot.paramMap.get('id')
+    console.log(this.selectedId)
   }
 
   ngOnInit(): void {
@@ -56,6 +59,15 @@ export class EditLeadComponent implements OnInit {
  updateLead(){
   console.log(this.editLeadForm)
  }
+ getLeadById() {
+  this.leadService.getLeadId(this.selectedId).subscribe((data: any) => {
+    this.leadsList = data;
+    console.dir(data);
+    console.dir(this.leadsList)
+  }, (error: any) => {
+
+  })
+}
   gotoBack(){
     this.router.navigateByUrl("/admin/leads");
   }

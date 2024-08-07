@@ -17,4 +17,7 @@ export class LeadService {
   getAllLeads(){
     return this._http.get<any>(AppConstants.GET_ALL_LEADS());
   }
+  getLeadId(id:any){
+    return this._http.get<any>(AppConstants.GET_LEADS_BY_ID(id));
+  }
 }
