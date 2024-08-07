@@ -1,1 +1,218 @@
-<p>edit-property works!</p>
+<div class=" content">
+    <div class=" row">
+        <div class=" col-md-12">
+            <div class=" card">
+                <div class=" card-header">
+                    <h5 class=" title">Update Property </h5>
+                </div>
+                <form [formGroup]="editPropertyForm" (ngSubmit)="updateProperty()">
+                    <div class=" card-body">
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label> Property Name </label>
+                                    <input class="form-control mb-0" placeholder="Property Name" type="text"
+                                        formControlName="propertyName" />
+                                        <small  *ngIf="f['propertyName'].touched && f['propertyName'].errors">Required</small>
+                                 
+                                </div>
+                            </div>
+                            <div class=" col-md-6 px-md-1">
+                                <div class=" form-group">
+                                    <label> Company Name </label>
+                                    <input class="form-control mb-0" placeholder="Company Name" type="text"
+                                        formControlName="companyName" />
+                                        <small  *ngIf="f['companyName'].touched && f['companyName'].errors">Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label> Rera No </label>
+                                    <input class="form-control mb-0" placeholder=" Rera Number" type="text"
+                                        formControlName="reraNumber" />
+                                        <small  *ngIf="f['reraNumber'].touched && f['reraNumber'].errors">Required</small>
+                                </div>
+                            </div>
+                            <div class=" col-md-6 px-md-1">
+                                <div class=" form-group">
+                                    <label> Guideline Value </label>
+                                    <input class="form-control mb-0" placeholder="Guideline Value" type="text"
+                                        formControlName="guidelineValue" />
+                                        <small  *ngIf="f['guidelineValue'].touched && f['guidelineValue'].errors">Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label> Property Type </label>
+                                    <select class="form-control mb-0" placeholder="Property Type"
+                                        formControlName="propertyType">
+                                        <option value="">Selec Property Type</option>
+                                        <option value="PLOT">Plot</option>
+                                        <option value="FLAT">Flat</option>
+                                        <option value="COMMERCIAL">Commercial</option>
+                                    </select>
+                                    <small  *ngIf="f['propertyType'].touched && f['propertyType'].errors">Required</small>
+                                </div>
+                            </div>
+                            <div class=" col-md-6 px-md-1">
+                                <div class=" form-group">
+                                    <label> Total Plots </label>
+                                    <input class="form-control mb-0" placeholder="totalPlots" type="number"
+                                        formControlName="totalPlots" />
+                                        <small  *ngIf="f['totalPlots'].touched && f['totalPlots'].errors">Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label>Property Poc</label>
+                                    <input class="form-control mb-0" placeholder="Property Poc" type="text"
+                                        formControlName="poc" />
+                                        <small  *ngIf="f['poc'].touched && f['poc'].errors">Required</small>
+                                </div>
+                            </div>
+                            <div class=" col-md-6 px-md-1">
+                                <div class=" form-group">
+                                    <label>Mobile</label>
+                                    <input class="form-control mb-0" placeholder="Mobile" type="tel" maxlength="10"
+                                        formControlName="mobile" />
+                                        <small  *ngIf="f['mobile'].touched && f['mobile'].errors">Required</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label> Amenities </label>
+                                    <input class="form-control mb-0" placeholder="Amenities" type="text"
+                                        formControlName="amenities" />
+                                        <small  *ngIf="f['amenities'].touched && f['amenities'].errors">Required</small>
+                                </div>
+                            </div>
+                            <div class=" col-md-6 px-md-1">
+                                <div class=" form-group">
+                                    <label>Status</label>
+                                    <input class="form-control mb-0" placeholder="Status" type="text"
+                                        formControlName="status" />
+                                        <small  *ngIf="f['status'].touched && f['status'].errors">Required</small>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label>Start Date</label>
+                                    <!-- <input class="form-control mb-0" placeholder="Start Date" type="text"
+                                        formControlName="startDate" /> -->
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   placeholder="Datepicker"
+                                                   class="form-control"
+                                                   bsDatepicker
+                                                   formControlName="startDate"
+                                                   [bsConfig]="{ isAnimated: true, containerClass: 'theme-red' }">
+                                                   <small  *ngIf="f['startDate'].touched && f['startDate'].errors">Required</small>
+                                          </div>
+
+                                        <!-- <input type="text"
+                                             placeholder="Datepicker"
+                                             class="form-control"
+                                             formControlName="startDate"
+                                             bsDatepicker
+                                             [bsConfig]="{ isAnimated: true, containerClass: 'theme-red' }"> -->
+                                </div>
+                                    
+                            </div>
+                            <div class=" col-md-6 px-md-1">
+                                <div class=" form-group">
+                                    <label> Extension Date </label>
+                                    <!-- <input class="form-control mb-0" placeholder="Extension Date " type="text"
+                                        formControlName="extensionDate" /> -->
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   placeholder="Datepicker"
+                                                   class="form-control"
+                                                   bsDatepicker
+                                                   formControlName="extensionDate"
+                                                   [bsConfig]="{ isAnimated: true, containerClass: 'theme-red' }">
+                                                   <small  *ngIf="f['extensionDate'].touched && f['extensionDate'].errors">Required</small>
+                                          </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label>Property Description</label>
+                                    <input class="form-control mb-0" placeholder="Property Description" type="text"
+                                        formControlName="propertyDescription" />
+                                </div>
+                            </div>
+                            <div class=" col-md-6 px-md-1">
+                                
+                            </div>
+                        </div>
+                        <hr>
+                        <div formGroupName="address">
+
+                            <div class=" row">
+                                <div class=" col-md-6 pr-md-1">
+                                    <div class=" form-group">
+                                        <label> Address </label>
+                                        <input class="form-control mb-0" placeholder="Address" type="text"
+                                            formControlName="village" />
+                                            <small  *ngIf="g['village'].touched && g['village'].errors">Required</small>
+                                            
+                                    </div>
+                                </div>
+                                <div class=" col-md-6 px-md-1">
+                                    <div class=" form-group">
+                                        <label> State</label>
+                                        <input class="form-control mb-0" placeholder="State" type="text"
+                                            formControlName="state" />
+                                            <small  *ngIf="g['state'].touched && g['state'].errors">Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row">
+                                <div class=" col-md-6 pr-md-1">
+                                    <div class=" form-group">
+                                        <label> District </label>
+                                        <input class="form-control mb-0"  placeholder="District" type="text"
+                                            formControlName="district" />
+                                            <small  *ngIf="g['district'].touched && g['district'].errors">Required</small>
+                                    </div>
+                                </div>
+                                <div class=" col-md-6 px-md-1">
+                                    <div class=" form-group">
+                                        <label> Directions </label>
+                                        <input class="form-control mb-0"  placeholder="Directions" type="text"
+                                            formControlName="directions" />
+                                            <small  *ngIf="g['directions'].touched && g['directions'].errors">Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class=" card-footer">
+                        <button class=" btn btn-fill btn-success" type="submit"
+                            [disabled]="this.editPropertyForm.invalid">Update</button>
+                        <button class=" btn btn-fill btn-danger" type="button" (click)="gotoBack()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

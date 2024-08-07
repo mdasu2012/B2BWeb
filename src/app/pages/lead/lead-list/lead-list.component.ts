@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Lead } from 'src/app/models/lead.model';
-import { LeadService } from 'src/app/services/lead.service';
+import { Lead } from '../../../models/lead.model';
+import { LeadService } from '../../../services/lead.service';
 
 @Component({
   selector: 'app-lead-list',

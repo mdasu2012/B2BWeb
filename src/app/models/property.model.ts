@@ -13,8 +13,8 @@ export interface Property {
     poc?: string;
     mobile?: string;
     amenities?: string;
-    startDate?: string;
-    extensionDate?: string;
+    startDate?: any;
+    extensionDate?: any;
 
     propertyDescription?: string;
     status?: string;

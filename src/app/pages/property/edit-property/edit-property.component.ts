@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PropertyService } from '../../../services/property.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-edit-property',
@@ -7,9 +11,72 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPropertyComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  editPropertyForm: UntypedFormGroup;
+  bsConfiguration: Partial<BsDatepickerConfig>;
+  propertydata:any={propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
+    state:'AP',directions:'',village:'',district:''},mobile:'9283476926',extensionDate:new Date(),reraNumber:'3243',guidelineValue:'wef',
+    startDate:new Date(),propertyType:'PLOT',totalPlots:'1',poc:'',amenities:'sd',propertyDescription:'sdfkjhsd',propertyMap:''
+  }
+  constructor(private router: Router, private fb: UntypedFormBuilder, private propertyService:PropertyService) {
+    
   }
 
+  ngOnInit(): void {
+    this.editPropertyForm = this.fb.group({
+      propertyName: [this.propertydata.propertyName, Validators.required],
+      companyName: [this.propertydata.companyName, Validators.required],
+      reraNumber: [this.propertydata.reraNumber, Validators.required],
+
+      guidelineValue: [this.propertydata.guidelineValue, Validators.required],
+
+      propertyType: [this.propertydata.propertyType, Validators.required],
+      totalPlots: [this.propertydata.totalPlots, Validators.required],
+
+      poc: [this.propertydata.poc, Validators.required],
+      mobile: [this.propertydata.mobile, Validators.required],
+
+      amenities: [this.propertydata.amenities, Validators.required],
+      startDate: [this.propertydata.startDate, Validators.required],
+
+      extensionDate: [this.propertydata.extensionDate, Validators.required],
+      propertyDescription: [this.propertydata.propertyDescription],
+      status: [this.propertydata.status, Validators.required],
+      propertyMap: [this.propertydata.propertyMap],
+
+      address: this.fb.group({
+        directions: [this.propertydata.address.directions, Validators.required],
+        village: [this.propertydata.address.village, Validators.required],
+        district: [this.propertydata.address.district, Validators.required],
+        state: [this.propertydata.address.state, Validators.required],
+      })
+
+    });
+    this.bsConfiguration = {
+      dateInputFormat: 'YYYY-MM-DD',
+      containerClass: 'theme-red',
+      isAnimated: true,
+    };
+    this.editPropertyForm.markAllAsTouched();
+    this.editPropertyForm.updateValueAndValidity();
+  }
+
+  updateProperty(){
+    this.propertyService.createProperty(this.editPropertyForm.value).subscribe((data: any) =>{
+
+      this.router.navigateByUrl("/admin/properties");
+    }, (error: any) =>{
+
+    })
+  }
+
+  gotoBack(){
+    this.router.navigateByUrl('/admin/properties');
+  }
+  get f(): { [key: string]: AbstractControl } {
+    return this.editPropertyForm.controls;
+  }
+  get g(): { [key: string]: AbstractControl } {
+  let c= this.editPropertyForm.controls.address as FormGroup
+    return c.controls;
+  }
 }

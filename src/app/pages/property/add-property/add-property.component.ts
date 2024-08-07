@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PropertyService } from 'src/app/services/property.service';
+import { PropertyService } from '../../../services/property.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
@@ -64,5 +64,12 @@ export class AddPropertyComponent implements OnInit {
 
   gotoBack(){
     this.router.navigateByUrl('/admin/properties');
+  }
+  get f(): { [key: string]: AbstractControl } {
+    return this.createPropertyForm.controls;
+  }
+  get g(): { [key: string]: AbstractControl } {
+  let c= this.createPropertyForm.controls.address as FormGroup
+    return c.controls;
   }
 }

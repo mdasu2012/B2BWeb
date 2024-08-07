@@ -3,7 +3,7 @@
         <div class=" col-md-12">
             <div class=" card">
                 <div class=" card-header">
-                    <h5 class=" title">Edit Lead </h5>
+                    <h5 class=" title">Create New Lead </h5>
                 </div>
                 <form [formGroup]="editLeadForm" (ngSubmit)="updateLead()">
                     <div class=" card-body">
@@ -13,10 +13,9 @@
                                     <label> First Name</label>
                                     <input class="form-control mb-0" placeholder="First Name" type="text"
                                         formControlName="firstName" />
-                                        <small  *ngIf="editLeadForm.controls.firstName.touched && editLeadForm.get('firstName').errors">Required</small>
-                                 </div>
-                                 
-                            </div>
+                                        <small  *ngIf="f['firstName'].touched && f['firstName'].errors">Required</small>
+                                      </div>
+                                     </div>
                             <div class=" col-md-6 px-md-1">
                                 <div class=" form-group">
                                     <label> Middle Name </label>
@@ -31,7 +30,7 @@
                                     <label> Last Name </label>
                                     <input class=" form-control mb-0" placeholder=" Last Name" type="text"
                                         formControlName="lastName" />
-                                        <small *ngIf="editLeadForm.controls.lastName.touched && editLeadForm.get('lastName').errors">Required</small>
+                                        <small  *ngIf="f['lastName'].touched && f['lastName'].errors">Required</small>
                                </div>
                             </div>
                             <div class=" col-md-6 px-md-1">
@@ -39,7 +38,7 @@
                                     <label> Occupation </label>
                                     <input class=" form-control mb-0" placeholder="Occupation" type="text"
                                         formControlName="occupation" />
-                                        <small *ngIf="editLeadForm.controls.occupation.touched && editLeadForm.get('occupation').errors">Required</small>
+                                        <small  *ngIf="f['occupation'].touched && f['occupation'].errors">Required</small>
                                </div>
                             </div>
                         </div>
@@ -54,7 +53,7 @@
                                         <option value="WARM">Warm</option>
                                         <option value="CLOSE">Close</option>
                                     </select>
-                                    <small *ngIf="editLeadForm.controls.leadStatus.touched && editLeadForm.get('leadStatus').errors">Required</small>
+                                    <small  *ngIf="f['leadStatus'].touched && f['leadStatus'].errors">Required</small>
                                 </div>
                             </div>
                             <div class=" col-md-6 px-md-1">
@@ -69,7 +68,7 @@
                                     <input class=" form-control mb-0" placeholder="Phone" type="tel" maxlength="10"
                                         formControlName="mobile" />
                                         <small *ngIf="editLeadForm.controls.mobile.touched && editLeadForm.get('mobile').hasError('required')">Required</small>
-                                        <small *ngIf="editLeadForm.controls.mobile.touched &&editLeadForm.get('mobile').hasError('pattern')">
+                                        <small *ngIf="editLeadForm.controls.mobile.touched && editLeadForm.get('mobile').hasError('pattern')">
                                             Enter Valid  Mobile number
                                           </small>
                                     </div>
@@ -78,9 +77,10 @@
                                 <div class=" form-group">
                                     <label> Email</label>
                                     <input class=" form-control mb-0" placeholder="Email" type="email"
-                                        formControlName="email" />
+                                        formControlName="email" />                                        
                                         <small *ngIf="editLeadForm.controls.email.touched && editLeadForm.get('email').hasError('required')">Required</small>
                                         <small *ngIf="editLeadForm.controls.email.touched && editLeadForm.get('email').errors?.email">Enter Valid Email</small>
+                                    
                                     </div>
                             </div>
 
@@ -92,7 +92,8 @@
                                     <div class="form-group">
                                         <label> Address </label>
                                         <input class=" form-control mb-0" rows="5" placeholder="Address" type="text"
-                                            formControlName="houseNo" />                                           
+                                            formControlName="houseNo" />
+                                            <small  *ngIf="g['houseNo'].touched && g['houseNo'].errors">Required</small>                                           
                                     </div>
                                 </div>
                                 <div class=" col-md-6 px-md-1">
@@ -100,6 +101,7 @@
                                         <label> City</label>
                                         <input class=" form-control mb-0" placeholder="City" type="text"
                                             formControlName="village" />
+                                            <small  *ngIf="g['village'].touched && g['village'].errors">Required</small>
                                           
                                     </div>
                                 </div>
@@ -110,7 +112,7 @@
                                         <label> State</label>
                                         <input class=" form-control mb-0" placeholder="State" type="text"
                                             formControlName="state" />
-                                           
+                                            <small  *ngIf="g['state'].touched && g['state'].errors">Required</small>                                           
                                     </div>
                                 </div>
                                 <div class=" col-md-6 px-md-1">
@@ -118,7 +120,7 @@
                                         <label> District </label>
                                         <input class=" form-control mb-0" rows="5" placeholder="District" type="text"
                                             formControlName="district" />
-                                          
+                                            <small  *ngIf="g['district'].touched && g['district'].errors">Required</small>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +129,8 @@
                                     <div class=" form-group">
                                         <label> Pin Code</label>
                                         <input class=" form-control mb-0" placeholder="Pin Code" type="tel" maxlength="6"
-                                            formControlName="pincode" />                                      
+                                            formControlName="pincode" />     
+                                            <small  *ngIf="g['pincode'].touched && g['pincode'].errors">Required</small>                                 
                                     </div>
                                 </div>
                                 <div class=" col-md-6 px-md-1">
@@ -143,8 +146,8 @@
                                     <label> Annual Income </label>
                                     <input class=" form-control mb-0" placeholder="Annual Income" type="text"
                                         formControlName="annualIncome" />
-                                        <small *ngIf="editLeadForm.controls.annualIncome.touched && editLeadForm.get('annualIncome').errors">Required</small>
-                                </div>
+                                        <small  *ngIf="f['annualIncome'].touched && f['annualIncome'].errors">Required</small>
+                                 </div>
                             </div>
                             <div class=" col-md-6 px-md-1">
                                 <div class=" form-group">
@@ -157,7 +160,7 @@
                                         <option value="COLDCALLL_LEAD">Cold Call Lead</option>
                                         <option value="CP_LEAD">cp Lead</option>
                                     </select>
-                                    <small *ngIf="editLeadForm.controls.leadSource.touched && editLeadForm.get('leadSource').errors">Required</small>
+                                    <small  *ngIf="f['leadSource'].touched && f['leadSource'].errors">Required</small>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +170,7 @@
                                     <label> Industry </label>
                                     <input class=" form-control mb-0" placeholder="Industry" type="text"
                                         formControlName="industry" />
-                                        <small *ngIf="editLeadForm.controls.industry.touched && editLeadForm.get('industry').errors">Required</small>
+                                        <small  *ngIf="f['industry'].touched && f['industry'].errors">Required</small>
                                 </div>
                             </div>
                             <div class=" col-md-6 px-md-1">
@@ -182,7 +185,7 @@
 
                     </div>
                     <div class=" card-footer">
-                        <button class=" btn btn-fill btn-success" type="submit" [disabled]="this.editLeadForm.invalid">Update</button>
+                        <button class=" btn btn-fill btn-success" type="submit" [disabled]="this.editLeadForm.invalid">Save</button>
                         <button class=" btn btn-fill btn-danger" type="text" (click)="gotoBack()">Cancel</button>
                     </div>
                 </form>

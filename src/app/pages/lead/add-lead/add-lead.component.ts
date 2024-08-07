@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LeadService } from 'src/app/services/lead.service';
+import { LeadService } from '../../../services/lead.service';
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from '@angular/platform-browser';
 @Component({
@@ -57,4 +57,13 @@ export class AddLeadComponent implements OnInit {
   gotoBack(){
     this.router.navigateByUrl("/admin/leads");
   }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.createLeadForm.controls;
+  }
+  get g(): { [key: string]: AbstractControl } {
+  let c= this.createLeadForm.controls.address as FormGroup
+    return c.controls;
+  }
+
 }

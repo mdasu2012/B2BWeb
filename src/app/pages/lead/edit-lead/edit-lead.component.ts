@@ -1,7 +1,7 @@
 import { Component, Input, input, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LeadService } from 'src/app/services/lead.service';
+import { LeadService } from '../../../services/lead.service';
 @Component({
   selector: 'app-edit-lead',
   templateUrl: './edit-lead.component.html',
@@ -58,5 +58,12 @@ export class EditLeadComponent implements OnInit {
  }
   gotoBack(){
     this.router.navigateByUrl("/admin/leads");
+  }
+  get f(): { [key: string]: AbstractControl } {
+    return this.editLeadForm.controls;
+  }
+  get g(): { [key: string]: AbstractControl } {
+  let c= this.editLeadForm.controls.address as FormGroup
+    return c.controls;
   }
 }

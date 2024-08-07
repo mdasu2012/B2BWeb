@@ -1,18 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Lead } from 'src/app/models/lead.model';
-import { Property } from 'src/app/models/property.model';
-import { LeadService } from 'src/app/services/lead.service';
-import { PropertyService } from 'src/app/services/property.service';
+import { Lead } from '../../../models/lead.model';
+import { Property }  from '../../../models/property.model'
+import { LeadService } from '../../../services/lead.service';
+import { PropertyService } from '../../../services/property.service';
 
 @Component({
   selector: 'app-property-list',
   templateUrl: './property-list.component.html',
   styleUrls: ['./property-list.component.scss']
 })
-export class PropertyListComponent implements OnInit {
-
-  properties: Array<Property> = [];
+export class PropertyListComponent implements OnInit {  
+  properties: Array<Property> = [{propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
+    state:'AP'},mobile:'9283476926348',extensionDate:new Date(),
+    startDate:new Date()
+  },
+  {propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
+    state:'AP'},mobile:'9283476926348',extensionDate:new Date(),
+    startDate:new Date()
+  },
+  {propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
+    state:'AP'},mobile:'9283476926348',extensionDate:new Date(),
+   startDate:new Date()
+  }];
   constructor(private router: Router, private propertyService: PropertyService) { }
 
   ngOnInit(): void {
@@ -31,5 +41,8 @@ export class PropertyListComponent implements OnInit {
     }, (error: any) => {
 
     })
+  }
+  edit(data){  
+    this.router.navigateByUrl("/admin/edit_property");
   }
 }
