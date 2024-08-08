@@ -72,4 +72,17 @@ export class AddPropertyComponent implements OnInit {
   let c= this.createPropertyForm.controls.address as FormGroup
     return c.controls;
   }
+
+  url:any;
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+      }
+    }
+  }
 }

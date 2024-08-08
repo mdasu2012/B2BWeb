@@ -1,0 +1,10 @@
+<div id="form-wrapper">  
+    <div class=" card">
+        <div class=" card-header">
+          <h5 class=" title" style="text-align: center;">PLEASE ENTER OTP</h5>
+          <button class=" btn btn-fill btn-danger" type="submit" (click)="otpSubmit()">Submit</button>   
+          <ng-otp-input style="text-align: center;" (onInputChange)="onOtpChange($event)"  [config]="{length:5}"></ng-otp-input>
+         
+          </div>          
+          </div>
+  </div>

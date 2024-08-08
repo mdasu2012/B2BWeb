@@ -65,8 +65,8 @@
                             <div class=" col-md-6 pr-md-1">
                                 <div class=" form-group">
                                     <label> Phone </label>
-                                    <input class=" form-control mb-0" placeholder="Phone" type="tel" maxlength="10"
-                                        formControlName="mobile" />
+                                    <input onlyNumber class=" form-control mb-0" placeholder="Phone"  type="tel" maxlength="10" 
+                                        formControlName="mobile"  />
                                         <small *ngIf="createLeadForm.controls.mobile.touched && createLeadForm.get('mobile').hasError('required')">Required</small>
                                         <small *ngIf="createLeadForm.controls.mobile.touched &&createLeadForm.get('mobile').hasError('pattern')">
                                             Enter Valid  Mobile number
@@ -128,7 +128,7 @@
                                 <div class=" col-md-6 pr-md-1">
                                     <div class=" form-group">
                                         <label> Pin Code</label>
-                                        <input class=" form-control mb-0" placeholder="Pin Code" type="tel" maxlength="6"
+                                        <input  onlyNumber class=" form-control mb-0" placeholder="Pin Code" type="tel" maxlength="6"
                                             formControlName="pincode" />     
                                             <small  *ngIf="g['pincode'].touched && g['pincode'].errors">Required</small>                                 
                                     </div>

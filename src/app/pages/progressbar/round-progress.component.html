@@ -1,0 +1,19 @@
+<svg  [attr.viewBox]="_getViewBox()" style="width: 133px;">
+    <circle
+      fill="none"
+      [attr.cx]="radius"
+      [attr.cy]="radius"
+      [attr.r]="radius - stroke / 2"
+      [style.stroke]="resolveColor(background)"
+      [style.stroke-width]="stroke"
+    />
+  
+    <path
+      #path
+      fill="none"
+      [style.stroke-width]="stroke"
+      [style.stroke]="resolveColor(color)"
+      [attr.transform]="getPathTransform()"
+    />
+  </svg>
+  

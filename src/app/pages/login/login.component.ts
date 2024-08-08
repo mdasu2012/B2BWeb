@@ -30,23 +30,15 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.router.navigateByUrl("/otp");
     this.userService.doLogin(this.loginForm.value).subscribe((data: any) => {
       this.user = data;
       console.dir(this.user)
-      // this.showOtp=true;
+      // this.showOtp=true;OtpComponent
       this.router.navigateByUrl("/admin/dashboard");
 
     }, (error: any) => {
 
     })
-  }
-  onOtpChange(value:any){
-    console.log(value)
-    this.userService.checkOtp(value).subscribe(res=>{
-      this.router.navigateByUrl("/admin/dashboard");
-    },error => {
-
-    })
-    
   }
 }

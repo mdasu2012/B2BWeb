@@ -22,6 +22,9 @@ import { AddPropertyComponent } from './pages/property/add-property/add-property
 import { EditPropertyComponent } from './pages/property/edit-property/edit-property.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { NgOtpInputModule } from "ng-otp-input";
+import { RoundProgressModule } from "./pages/progressbar/round-progress.module";
+import { OtpComponent } from "./pages/otp/otp.component";
+import { OnlyNumberDirective } from "./services/only-number.directive";
 
 @NgModule({
   imports: [
@@ -34,10 +37,13 @@ import { NgOtpInputModule } from "ng-otp-input";
     RouterModule,
     AppRoutingModule,
     NgOtpInputModule,
+    RoundProgressModule,
     ToastrModule.forRoot(),
     BsDatepickerModule.forRoot(),
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, LoginComponent, LeadListComponent, AddLeadComponent, EditLeadComponent, PropertyListComponent, AddPropertyComponent, EditPropertyComponent],
+  declarations: [AppComponent,OtpComponent, AdminLayoutComponent, AuthLayoutComponent,
+     LoginComponent, LeadListComponent, AddLeadComponent, EditLeadComponent, PropertyListComponent,
+      AddPropertyComponent, EditPropertyComponent,OnlyNumberDirective],
   providers: [],
   bootstrap: [AppComponent]
 })

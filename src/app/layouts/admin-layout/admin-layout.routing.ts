@@ -13,9 +13,11 @@ import { EditLeadComponent } from "src/app/pages/lead/edit-lead/edit-lead.compon
 import { PropertyListComponent } from "src/app/pages/property/property-list/property-list.component";
 import { EditPropertyComponent } from "src/app/pages/property/edit-property/edit-property.component";
 import { AddPropertyComponent } from "src/app/pages/property/add-property/add-property.component";
+import { OtpComponent } from "src/app/pages/otp/otp.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
+  { path: "otp", component: OtpComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "leads", component: LeadListComponent },
   { path: "add_lead", component: AddLeadComponent },

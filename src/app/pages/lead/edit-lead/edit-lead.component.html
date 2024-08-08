@@ -65,7 +65,7 @@
                             <div class=" col-md-6 pr-md-1">
                                 <div class=" form-group">
                                     <label> Phone </label>
-                                    <input class=" form-control mb-0" placeholder="Phone" type="tel" maxlength="10"
+                                    <input onlyNumber class=" form-control mb-0" placeholder="Phone" type="tel" maxlength="10"
                                         formControlName="mobile" />
                                         <small *ngIf="editLeadForm.controls.mobile.touched && editLeadForm.get('mobile').hasError('required')">Required</small>
                                         <small *ngIf="editLeadForm.controls.mobile.touched && editLeadForm.get('mobile').hasError('pattern')">
@@ -128,7 +128,7 @@
                                 <div class=" col-md-6 pr-md-1">
                                     <div class=" form-group">
                                         <label> Pin Code</label>
-                                        <input class=" form-control mb-0" placeholder="Pin Code" type="tel" maxlength="6"
+                                        <input onlyNumber class=" form-control mb-0" placeholder="Pin Code" type="tel" maxlength="6"
                                             formControlName="pincode" />     
                                             <small  *ngIf="g['pincode'].touched && g['pincode'].errors">Required</small>                                 
                                     </div>
