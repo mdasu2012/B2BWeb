@@ -12,15 +12,15 @@ export class LeadListComponent implements OnInit {
   leadsList: Array<Lead> = [];  
   constructor(private router: Router, private leadService: LeadService) { }
   leadsList1 = [
-    {firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
+    {id:1,firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
       state:'AP'},mobile:'9283476926348',email:'sdf@getMaxListeners.com',
       leadStatus:'Y',createdDate:new Date(),owner:'Satish'
     },
-    {firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
+    {id:3,firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
       state:'AP'},mobile:'9283476926348',email:'sdf@getMaxListeners.com',
       leadStatus:'Y',createdDate:new Date(),owner:'Satish'
     },
-    {firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
+    {id:2,firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
       state:'AP'},mobile:'9283476926348',email:'sdf@getMaxListeners.com',
       leadStatus:'Y',createdDate:new Date(),owner:'Satish'
     },
@@ -44,7 +44,10 @@ export class LeadListComponent implements OnInit {
   }
   edit(data){  
     console.log(data)
-    this.router.navigateByUrl("/admin/edit_lead/",data.id);
+    this.router.navigate(["/admin/edit_lead/",data.id,'edit']);
   }
-  
+  view(data){  
+    console.log(data)
+    this.router.navigate(["/admin/edit_lead/",data.id,'view']);
+  }
 }

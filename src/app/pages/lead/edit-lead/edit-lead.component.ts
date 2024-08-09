@@ -11,6 +11,9 @@ export class EditLeadComponent implements OnInit {
   editLeadForm: UntypedFormGroup;
   selectedId:any;
   leadsList:any;
+  selectedType:any;
+  showView:boolean;
+  headerName:any;
   // leadsList:any = 
   //   {firstName:'adas',lastName:'sdsdf',industry:'sdf',address:{
   //     state:'AP'},mobile:'92834769',email:'sdf@getMaxListeners.com',
@@ -19,11 +22,20 @@ export class EditLeadComponent implements OnInit {
   //   }
   
   constructor(private router: Router,private activateRouter:ActivatedRoute, private fb: UntypedFormBuilder, private leadService:LeadService) { 
-   this.selectedId = this.activateRouter.snapshot.paramMap.get('id')
+   this.selectedId = this.activateRouter.snapshot.paramMap.get('id');
+   this.selectedType = this.activateRouter.snapshot.paramMap.get('type');
     console.log(this.selectedId)
+    console.log(this.selectedType)
   }
 
   ngOnInit(): void {
+    if(this.selectedType === 'edit'){
+      this.headerName= 'Update';
+      this.showView = false;
+    } else {
+      this.headerName= 'View';
+      this.showView = true;
+    }
     console.log(this.leadsList)
     console.log(this.leadsList?.firstName)
     this.editLeadForm = this.fb.group({
