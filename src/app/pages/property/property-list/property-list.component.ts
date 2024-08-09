@@ -11,15 +11,15 @@ import { PropertyService } from '../../../services/property.service';
   styleUrls: ['./property-list.component.scss']
 })
 export class PropertyListComponent implements OnInit {  
-  properties: Array<Property> = [{propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
+  properties: Array<Property> = [{id:1,propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
     state:'AP'},mobile:'9283476926348',extensionDate:new Date(),
     startDate:new Date()
   },
-  {propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
+  {id:2,propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
     state:'AP'},mobile:'9283476926348',extensionDate:new Date(),
     startDate:new Date()
   },
-  {propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
+  {id:3,propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
     state:'AP'},mobile:'9283476926348',extensionDate:new Date(),
    startDate:new Date()
   }];
@@ -43,6 +43,10 @@ export class PropertyListComponent implements OnInit {
     })
   }
   edit(data){  
-    this.router.navigateByUrl("/admin/edit_property");
+    this.router.navigate(["/admin/edit_property",data.id,'edit']);
+  } 
+  view(data){  
+    console.log(data)
+    this.router.navigate(["/admin/edit_property",data.id,'view']);
   }
 }

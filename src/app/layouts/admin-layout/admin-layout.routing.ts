@@ -25,7 +25,7 @@ export const AdminLayoutRoutes: Routes = [
 
   { path: "properties", component: PropertyListComponent },
   { path: "add_property", component: AddPropertyComponent },
-  { path: "edit_property", component: EditPropertyComponent },
+  { path: "edit_property/:id/:type", component: EditPropertyComponent },
 
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapComponent },

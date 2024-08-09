@@ -33,10 +33,15 @@
                      <td>{{property.status}}</td>
                      <td>{{property.startDate | date}}</td>
 
-                     <td>{{property.extensionDate | date}}</td>
-                     <td> <button (click)="edit(lead)" class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Lead" container="body" >
+                     <td>{{property.extensionDate | date}}</td>                   
+                    <td> <button (click)="edit(property)"  class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Lead" container="body" >
                       <i class=" tim-icons icon-pencil"> </i>
-                    </button></td>
+                    </button>
+                    <button (click)="view(property)"  class=" btn btn-link" type="button" placement="left" ngbTooltip="View Lead" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  
+                  </td>
                   </tr>
                 </tbody>
               </table>

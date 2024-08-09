@@ -23,9 +23,7 @@ export class EditLeadComponent implements OnInit {
   
   constructor(private router: Router,private activateRouter:ActivatedRoute, private fb: UntypedFormBuilder, private leadService:LeadService) { 
    this.selectedId = this.activateRouter.snapshot.paramMap.get('id');
-   this.selectedType = this.activateRouter.snapshot.paramMap.get('type');
-    console.log(this.selectedId)
-    console.log(this.selectedType)
+   this.selectedType = this.activateRouter.snapshot.paramMap.get('type');    
   }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PropertyService } from '../../../services/property.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
@@ -10,18 +10,29 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   styleUrls: ['./edit-property.component.scss']
 })
 export class EditPropertyComponent implements OnInit {
-
+  selectedId:any;  
+  selectedType:any;
+  showView:boolean;
+  headerName:any;
   editPropertyForm: UntypedFormGroup;
   bsConfiguration: Partial<BsDatepickerConfig>;
   propertydata:any={propertyName:'adas',companyName:'sdsdf',status:'sdf',address:{
     state:'AP',directions:'',village:'',district:''},mobile:'9283476926',extensionDate:new Date(),reraNumber:'3243',guidelineValue:'wef',
     startDate:new Date(),propertyType:'PLOT',totalPlots:'1',poc:'',amenities:'sd',propertyDescription:'sdfkjhsd',propertyMap:''
   }
-  constructor(private router: Router, private fb: UntypedFormBuilder, private propertyService:PropertyService) {
-    
+  constructor(private activateRouter:ActivatedRoute,private router: Router, private fb: UntypedFormBuilder, private propertyService:PropertyService) {
+    this.selectedId = this.activateRouter.snapshot.paramMap.get('id');
+    this.selectedType = this.activateRouter.snapshot.paramMap.get('type');    
   }
 
   ngOnInit(): void {
+    if(this.selectedType === 'edit'){
+      this.headerName= 'Update';
+      this.showView = false;
+    } else {
+      this.headerName= 'View';
+      this.showView = true;
+    }
     this.editPropertyForm = this.fb.group({
       propertyName: [this.propertydata.propertyName, Validators.required],
       companyName: [this.propertydata.companyName, Validators.required],
