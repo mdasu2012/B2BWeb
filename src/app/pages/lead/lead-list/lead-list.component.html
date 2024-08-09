@@ -36,9 +36,13 @@
                    <td>{{lead.createdDate | date}}</td>
 
                     <td>{{ lead.owner}}</td>
-                    <td> <button (click)="edit(lead)" class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Lead" container="body" >
+                    <td> <button (click)="edit(lead)"  class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Lead" container="body" >
                       <i class=" tim-icons icon-pencil"> </i>
-                    </button></td>
+                    </button>
+                    <button (click)="view(lead)"  class=" btn btn-link" type="button" placement="left" ngbTooltip="View Lead" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
