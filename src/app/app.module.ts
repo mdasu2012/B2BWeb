@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
@@ -25,7 +25,6 @@ import { NgOtpInputModule } from "ng-otp-input";
 import { RoundProgressModule } from "./pages/progressbar/round-progress.module";
 import { OtpComponent } from "./pages/otp/otp.component";
 import { OnlyNumberDirective } from "./services/only-number.directive";
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -45,6 +44,7 @@ import { OnlyNumberDirective } from "./services/only-number.directive";
      LoginComponent, LeadListComponent, AddLeadComponent, EditLeadComponent, PropertyListComponent,
       AddPropertyComponent, EditPropertyComponent,OnlyNumberDirective],
   providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

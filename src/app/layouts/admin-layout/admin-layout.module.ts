@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
@@ -35,6 +35,7 @@ import { RoundProgressModule } from "src/app/pages/progressbar/round-progress.mo
     NotificationsComponent,
     MapComponent,
     // RtlComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AdminLayoutModule {}
